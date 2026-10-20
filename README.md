@@ -5,10 +5,14 @@
 
 <img src="https://www.oledanimationmaker.com/github-readmes/SajanSajan-preview.gif" alt="Sajan Sajan Teri Dulhan Tujhko Pukare Aaja pixel-art animation playing on a 128x64 SSD1306 OLED" width="512" />
 
-**338 hand-converted frames. One ESP32. Zero audio. Maximum feelings.**
+**338 hand-converted frames. One ESP8266. Zero audio. Maximum feelings.**
+
+> **Built and tested on ESP8266.** Want it on a different board? [Open OLED Animation Maker](https://www.oledanimationmaker.com/), pick your board and library, import your clip and click **Get the Code**.
+
+
 
 ![Arduino](https://img.shields.io/badge/Arduino-IDE-00979D?logo=arduino&logoColor=white)
-![ESP32](https://img.shields.io/badge/Board-ESP32%20%2F%20ESP8266-000000?logo=espressif&logoColor=white)
+![ESP8266](https://img.shields.io/badge/Board-ESP8266-000000?logo=espressif&logoColor=white)
 ![OLED](https://img.shields.io/badge/Display-SSD1306%20128x64-111827)
 ![Frames](https://img.shields.io/badge/Frames-338-E11D48)
 ![Loop](https://img.shields.io/badge/Loop-22.6s-8B5CF6)
@@ -59,6 +63,18 @@ Put it on a desk. Gift it to someone in wedding season. Film it for a reel. Peop
 
 ---
 
+## 🔁 Need a different board?
+
+All the code here is made for **ESP8266**. Please don't hand-edit it for another chip. Instead, generate fresh code for your board on our website:
+
+1. Open [oledanimationmaker.com](https://www.oledanimationmaker.com/)
+2. Pick your **board** (the tool has a 24-board menu: Arduino Uno/Nano/Mega, many ESP32 types, Raspberry Pi Pico and more) and your **library**
+3. Import your clip or GIF
+4. Click **Get the Code** and upload it
+
+
+---
+
 ## ⚡ 60-second start
 
 ```bash
@@ -67,11 +83,13 @@ git clone https://github.com/itzmeAshish/SajanSajan.git
 
 1. Rename the folder to **`main`** (the file is `main.ino`, and Arduino IDE needs the names to match)
 2. Install **Adafruit SSD1306** and **Adafruit GFX** from Library Manager
-3. Select **ESP32** or a **4MB ESP8266**
+3. Select your **ESP8266** board (for example *NodeMCU 1.0*) with a **4MB** flash size
 4. Upload
 5. Watch it play
 
 Serial baud is **115200**. If you see `SSD1306 allocation failed`, check power, SDA/SCL, or try address `0x3D`.
+
+> **New to Arduino?** The [step-by-step upload guide](https://www.oledanimationmaker.com/blog/upload-oled-animation-from-github-esp8266-arduino-ide.html) covers the board package, wiring diagram, board settings and a troubleshooting table.
 
 ---
 
@@ -79,33 +97,20 @@ Serial baud is **115200**. If you see `SSD1306 allocation failed`, check power, 
 
 | Item | Notes |
 |------|--------|
-| Board | **ESP32 or 4MB ESP8266** |
+| Board | **ESP8266** (NodeMCU or Wemos D1 Mini), 4MB flash |
 | OLED | 0.96" SSD1306 I2C 128×64 @ `0x3C` |
 | IDE | Arduino IDE 1.8+ or 2.x |
 | Wires | 4 Dupont jumpers |
 
 > **Will it run on an Uno?** No. 338 frames × 1024 bytes = **346,112 bytes (338 KB)** of pictures alone.
 > Uno has 32 KB of flash and Mega 2560 has 256 KB, so neither can hold it.
-> The comment at the top of `main.ino` mentions Uno pins because that's the generator's header. Wire an ESP board.
+> The comment at the top of `main.ino` mentions Uno pins because that's the generator's header. Wire an ESP8266 board.
 
 ---
 
 ## 🔌 Wiring
 
-### ESP32 (recommended)
-
-| OLED | Board |
-|------|--------|
-| VCC | **3.3V** |
-| GND | GND |
-| SDA | **GPIO21** |
-| SCL | **GPIO22** |
-
-```cpp
-Wire.begin(21, 22);
-```
-
-### ESP8266 NodeMCU / Wemos D1 Mini
+### ESP8266 NodeMCU / Wemos D1 Mini (the board this code is built for)
 
 | OLED | Board | GPIO |
 |------|--------|------|
@@ -167,7 +172,7 @@ https://www.oledanimationmaker.com/blog/sajan-sajan-teri-dulhan-tujhko-pukare-aa
 | Problem | Fix |
 |---------|-----|
 | IDE says the sketch name doesn't match | Rename the folder to `main` |
-| Sketch too big | ESP32 or 4MB ESP8266. Uno and Mega won't link |
+| Sketch too big | Use a 4MB ESP8266. Uno and Mega won't link |
 | Blank screen | 3.3V, reseat SDA/SCL, try `0x3D` |
 | Loop jumps back early | `frameIdx` must stay `uint16_t` |
 | Slower than 15 fps | `Wire.setClock(400000)` |
@@ -220,7 +225,7 @@ Blank-screen checklist: [oledanimationmaker.com/blog/arduino-oled-blank-screen-f
 
 ## 🔎 Keywords
 
-`sajan sajan teri dulhan oled` · `alka yagnik oled animation` · `aarzoo song arduino` · `anu malik song oled` · `hindi song oled` · `bollywood oled animation` · `esp32 oled animation` · `esp8266 ssd1306` · `progmem bitmap` · `338 frames` · `0.96 oled` · `adafruit ssd1306`
+`sajan sajan teri dulhan oled` · `alka yagnik oled animation` · `aarzoo song arduino` · `anu malik song oled` · `hindi song oled` · `bollywood oled animation` · `esp8266 ssd1306` · `progmem bitmap` · `338 frames` · `0.96 oled` · `adafruit ssd1306`
 
 ---
 
@@ -239,6 +244,6 @@ This is a visual fan tribute. The song belongs to its original artists (Alka Yag
 
 <!--
 GitHub repo settings to paste:
-Description: 💍 Sajan Sajan Teri Dulhan Tujhko Pukare Aaja (Alka Yagnik, Aarzoo) as a 338-frame pixel-art loop on a 0.96" SSD1306 OLED. ESP32 / ESP8266. Free code.
-Topics: arduino, esp32, esp8266, oled, ssd1306, oled-animation, pixel-art, progmem, adafruit-gfx, hindi-song, bollywood, alka-yagnik, aarzoo, maker, diy, arduino-project
+Description: 💍 Sajan Sajan Teri Dulhan Tujhko Pukare Aaja (Alka Yagnik, Aarzoo) as a 338-frame pixel-art loop on a 0.96" SSD1306 OLED. ESP8266. Free code.
+Topics: arduino, esp8266, oled, ssd1306, oled-animation, pixel-art, progmem, adafruit-gfx, hindi-song, bollywood, alka-yagnik, aarzoo, maker, diy, arduino-project
 -->
