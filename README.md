@@ -3,7 +3,7 @@
 # 💍 Sajan Sajan Teri Dulhan Tujhko Pukare Aaja
 ### Alka Yagnik's *Aarzoo* classic, on a 0.96" OLED the size of a postage stamp.
 
-<img src="https://www.oledanimationmaker.com/github-readmes/SajanSajan-preview.gif" alt="Sajan Sajan Teri Dulhan Tujhko Pukare Aaja pixel-art animation playing on a 128x64 SSD1306 OLED" width="512" />
+<img src="preview.gif" alt="Sajan Sajan Teri Dulhan Tujhko Pukare Aaja pixel-art animation playing on a 128x64 SSD1306 OLED" width="512" />
 
 **338 hand-converted frames. One ESP8266. Zero audio. Maximum feelings.**
 
